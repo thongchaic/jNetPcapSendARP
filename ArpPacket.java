@@ -57,8 +57,8 @@ public class ArpPacket {
 		
 		//opcode 
 		a[6] = a[7] = (byte)0;
-		a[6] |= (byte) ((opcode & 0xff00) >> 4);
-		a[7] |= (byte) ((opcode & 0x00ff));
+		a[6] |= (byte) ((opcode & 0x0000ff00) >>> 4);
+		a[7] |= (byte) ((opcode & 0x000000ff));
 		
 		//Sender HW / Target HW 
 		for(int i=0;i<6;i++){
